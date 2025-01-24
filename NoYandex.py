@@ -19,19 +19,16 @@ def get_campaigns():
         }
     }
 
-    # Отправляем POST-запрос к API
     response = requests.post(API_URL, json=body, headers=headers)
 
-    # Проверяем статус ответа
     if response.status_code == 200:
         print("Запрос выполнен успешно!")
-        return response.json()  # Возвращаем ответ в формате JSON
+        return response.json()
     else:
         print(f"Ошибка при выполнении запроса: {response.status_code}")
-        print(response.json())  # Выводим сообщение об ошибке
+        print(response.json())
 
 
-# Проверяем работу функции
 campaigns = get_campaigns()
 if campaigns:
     print("Список кампаний:")
